@@ -1,74 +1,32 @@
-﻿// Script para pantalla de inicio
+﻿// ================================================
+// QUIZ SAN VALENTÍN - JAVASCRIPT PRINCIPAL
+// ================================================
 
-// Referencias a los elementos principales de la app
-const startBtn = document.getElementById("startBtn"); // Botón de inicio
-const startScreen = document.getElementById("start-screen"); // Pantalla de inicio
-const quizScreen = document.getElementById("quiz-screen"); // Pantalla de quiz
-const rhinaVideo = document.getElementById("rhinaVideo"); // Video sorpresa
+// Mensaje de confirmación de carga en consola del navegador
+console.log('App iniciada');
 
-const heartsContainer = document.getElementById("hearts-container"); // Contenedor de corazones
+// ================================================
+// REFERENCIAS A ELEMENTOS DEL DOM
+// ================================================
 
-// Crea un corazón animado y lo agrega al contenedor
-function createHeart() {
-  const heart = document.createElement("span");
-  heart.className = "heart";
-  heart.innerHTML = "💖";
-  // Posición horizontal aleatoria (10% a 90% del ancho)
-  heart.style.left = Math.random() * 80 + 10 + "%";
-  // Posición vertical inicial (70% de la pantalla)
-  heart.style.top = "70%";
-  // Tamaño aleatorio del corazón
-  heart.style.fontSize = (Math.random() * 1.5 + 1.2) + "rem";
-  heartsContainer.appendChild(heart);
-  // Elimina el corazón después de 2 segundos
-  setTimeout(() => heart.remove(), 2000);
-}
+// Botón para empezar el quiz (pantalla de bienvenida)
+const btnEmpezar = document.getElementById('btn-empezar');
 
-// Lanza varios corazones animados en secuencia
-function showHearts() {
-  for (let i = 0; i < 12; i++) {
-    setTimeout(createHeart, i * 120);
-  }
-}
+// Sección de bienvenida (primera pantalla)
+const seccionBienvenida = document.getElementById('bienvenida');
 
-// Evento al hacer clic en el botón de inicio
-startBtn.addEventListener("click", () => {
-  showHearts(); // Muestra el efecto de corazones
-  console.log("Botón clickeado: Empezar el quiz");
-  
-  // Muestra el video
-  rhinaVideo.classList.add("show");
-  
-  // Oculta el botón
-  startBtn.style.display = "none";
-  
-  // Reproduce el video
-  rhinaVideo.play().catch(err => console.log("Error al reproducir video:", err));
-  
-  // Cuando termina el video, cambia a la pantalla de quiz
-  rhinaVideo.onended = () => {
-    startScreen.classList.remove("active");
-    quizScreen.classList.add("active");
-  }
+// ================================================
+// EVENT LISTENERS - MANEJO DE EVENTOS
+// ================================================
+
+// Event Listener del botón "Empezar"
+btnEmpezar.addEventListener('click', () => {
+    // Log para debugging - confirma que el botón funciona
+    console.log('Botón empezar clickeado');
+    
+    // PRÓXIMO PASO: Aquí irá la lógica para:
+    // - Ocultar la sección de bienvenida
+    // - Mostrar la sección de preguntas del quiz
 });
 
-// Detectar plataforma y aplicar clase específica al video y al mensaje
-function setVideoPlatformClass() {
-  const ua = navigator.userAgent || navigator.vendor || window.opera;
-  const quizMessage = document.getElementById('quiz-message');
-  
-  if (/android/i.test(ua)) {
-    rhinaVideo.classList.add('android-video');
-    quizMessage.classList.add('android-message');
-  } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-    rhinaVideo.classList.add('ios-video');
-    quizMessage.classList.add('ios-message');
-  } else {
-    rhinaVideo.classList.add('web-video');
-    quizMessage.classList.add('web-message');
-  }
-}
 
-setVideoPlatformClass();
-
-console.log("Script cargado correctamente"); // Mensaje de depuración

@@ -1,42 +1,43 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quiz San Valentín</title>
-  <!-- Enlaza la hoja de estilos principal -->
-  <link rel="stylesheet" href="style.css">
-  <!-- Fuente romántica para el mensaje final -->
-  <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Configuración de caracteres UTF-8 para caracteres especiales y emojis -->
+    <meta charset="UTF-8">
+    <!-- Configuración responsive para móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz San Valentín</title>
+    <!-- Enlace a la hoja de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Contenedor global de corazones flotantes (efecto visual romántico) -->
-  <div id="hearts-container"></div>
-  <!-- Contenedor principal de la app -->
-  <div class="app">
-    <!-- Pantalla de inicio, visible al cargar -->
-    <div id="start-screen" class="screen active">
-      <div class="content">
-        <!-- Video sorpresa para pedir que seas mi San Valentín -->
-        <video id="rhinaVideo" class="rhina-video" playsinline webkit-playsinline controlsList="nofullscreen" disablePictureInPicture>
-          <source src="https://res.cloudinary.com/dio3db11v/video/upload/v1770431153/1.Rhinaf_b2lewf.mp4" type="video/mp4">
-        </video>
-        <!-- Botón para iniciar la sorpresa romántica -->
-        <button id="startBtn" class="btn-start">💘 ¡Ver sorpresa!</button>
-      </div>
+    
+    <!-- Contenedor principal - Formato 9:16 con fondo de imagen -->
+    <div class="container">
+        
+        <!-- ==========================================
+             SECCIÓN 1: PANTALLA DE BIENVENIDA
+             - Muestra dedicatoria personal
+             - Botón para iniciar el quiz
+             ========================================== -->
+        <section id="bienvenida" class="seccion active">
+            <div class="contenido">
+                <!-- Título y dedicatoria en box blanca con efecto de flotación -->
+                <div class="titulo-box">
+                    <h1>💘 Para Ti 💘</h1>
+                    <p class="dedicatoria">Rhi</p>
+                </div>
+                <!-- Textos descriptivos -->
+                <p class="descripcion">Preparé este quiz especial para ti</p>
+                <p class="descripcion">¿Qué tanto me conoces?</p>
+                <!-- Botón principal para iniciar -->
+                <button id="btn-empezar" class="btn-principal">¡Empezar!</button>
+            </div>
+        </section>
+
     </div>
-    <!-- Pantalla del mensaje final, aparece tras terminar el video -->
-    <div id="quiz-screen" class="screen">
-      <!-- Mensaje romántico mostrado al terminar el video -->
-      <div id="quiz-message" class="quiz-message">
-        <p>Rhi</p>
-        <p>¿Te gustaría ser mi</p>
-        <p>San Valentín? 💘</p>
-      </div>
-    </div>
-  </div>
-  <!-- Script principal de la app -->
-  <script src="script.js"></script>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
 
