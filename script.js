@@ -32,14 +32,14 @@ const bancoPreguntas = [
         opciones: {
             A: "Un restaurante",
             B: "En casa",
-            C: "Otro lugar especial"
+            C: "Kantrika"
         },
         correcta: "C"
     },
     {
         pregunta: "¿Cuál es mi color favorito?",
         opciones: {
-            A: "Azul",
+            A: "Negro",
             B: "Rojo",
             C: "Verde"
         },
@@ -48,7 +48,7 @@ const bancoPreguntas = [
     {
         pregunta: "¿Cuál es nuestra canción favorita?",
         opciones: {
-            A: "Una balada romántica",
+            A: "Un reguetón",
             B: "Una canción pop",
             C: "Una canción de rock"
         },
@@ -58,8 +58,8 @@ const bancoPreguntas = [
         pregunta: "¿Qué me gusta hacer en mi tiempo libre?",
         opciones: {
             A: "Leer libros",
-            B: "Ver películas",
-            C: "Hacer ejercicio"
+            B: "Estudiar",
+            C: "Ver películas"
         },
         correcta: "B"
     },
@@ -68,15 +68,15 @@ const bancoPreguntas = [
         opciones: {
             A: "Pizza",
             B: "Pasta",
-            C: "Sushi"
+            C: "Pollo"
         },
-        correcta: "A"
+        correcta: "C"
     },
     {
         pregunta: "¿Qué día nos conocimos?",
         opciones: {
             A: "Un lunes",
-            B: "Un viernes",
+            B: "Un jueves",
             C: "Un sábado"
         },
         correcta: "B"
@@ -84,7 +84,7 @@ const bancoPreguntas = [
     {
         pregunta: "¿Cuál es mi película favorita?",
         opciones: {
-            A: "Una comedia romántica",
+            A: "Shallow",
             B: "Una película de acción",
             C: "Una película de terror"
         },
@@ -95,15 +95,15 @@ const bancoPreguntas = [
         opciones: {
             A: "Flores",
             B: "Un peluche",
-            C: "Chocolates"
+            C: "Un anillo"
         },
-        correcta: "B"
+        correcta: "C"
     },
     {
         pregunta: "¿Cuál es mi postre favorito?",
         opciones: {
             A: "Helado",
-            B: "Pastel de chocolate",
+            B: "Chessecake",
             C: "Tiramisu"
         },
         correcta: "B"
