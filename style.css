@@ -179,113 +179,6 @@ h1 {
 }
 
 /* ================================================
-   PANEL DE AJUSTES PARA ANDROID
-   ================================================ */
-
-.ajustes-panel {
-    width: 100%;
-    margin: 15px 0;
-}
-
-.btn-ajustes {
-    width: auto;
-    padding: 8px 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(233, 30, 99, 0.6);
-    border-radius: 20px;
-    color: #e91e63;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-bottom: 10px;
-    user-select: none;
-    -webkit-tap-highlight-color: rgba(233, 30, 99, 0.3);
-    touch-action: manipulation;
-}
-
-.btn-ajustes:active {
-    transform: scale(0.95);
-}
-
-.controles-ajustes {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 20px;
-    margin-top: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.controles-ajustes.oculto {
-    display: none;
-}
-
-.control-grupo {
-    margin-bottom: 15px;
-}
-
-.control-grupo label {
-    display: block;
-    color: #333;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.control-grupo input[type="range"] {
-    width: 100%;
-    height: 6px;
-    border-radius: 5px;
-    background: linear-gradient(to right, #e91e63, #ff6090);
-    outline: none;
-    -webkit-appearance: none;
-    appearance: none;
-}
-
-.control-grupo input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #e91e63;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.control-grupo input[type="range"]::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #e91e63;
-    cursor: pointer;
-    border: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.btn-reset {
-    width: 100%;
-    padding: 10px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: none;
-    border-radius: 15px;
-    color: white;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-    user-select: none;
-    -webkit-tap-highlight-color: rgba(102, 126, 234, 0.3);
-    touch-action: manipulation;
-}
-
-.btn-reset:active {
-    transform: scale(0.95);
-}
-
-/* ================================================
    RESPONSIVE - ADAPTACIÓN A MÓVILES
    ================================================ */
 
@@ -924,9 +817,374 @@ h1 {
         padding: 15px 20px;
     }
     
+    .opcion-btn {
+        padding: 10px 15px;
+        margin: 6px 0;
+        min-height: 45px;
+    }
+}
+
+/* ================================================
+   🌐 OPTIMIZACIONES ESPECÍFICAS PARA WEB DESKTOP
+   ================================================ */
+
+@media (pointer: fine) and (min-width: 768px) {
+    /* Dispositivos con mouse/trackpad preciso */
+    
+    .opcion-btn {
+        min-height: 58px; /* Reducido para pantalla 6:19 */
+        padding: 12px 20px;
+        cursor: pointer;
+    }
+    
+    .opcion-btn:hover {
+        background: linear-gradient(145deg, #ffe5f0, #ffd4e5);
+        transform: translateX(15px) translateY(-5px); /* Efecto hover más pronunciado */
+        box-shadow: 
+            0 15px 30px rgba(233, 30, 99, 0.35),
+            0 8px 15px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            inset 0 -2px 0 rgba(233, 30, 99, 0.15);
+    }
+    
+    .pregunta-box {
+        padding: 22px 30px;
+        margin-top: 140px;
+    }
+    
+    .pregunta-texto {
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+    
+    .contador-tiempo, .numero-pregunta {
+        width: 58px;
+        height: 58px;
+    }
+    
+    .numero-pregunta::before {
+        font-size: 3.6rem;
+    }
+    
+    .tiempo-numero {
+        font-size: 1.2rem;
+    }
+    
+    .quiz-footer {
+        gap: 20px;
+    }
+    
+    .btn-siguiente {
+        padding: 12px 28px;
+        font-size: 1rem;
+        min-height: 48px;
+    }
+    
+    .btn-siguiente:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
+    }
+    
+    .puntaje {
+        padding: 12px 20px;
+    }
+    
+    .opcion-btn .texto {
+        font-size: 1.05rem;
+    }
+}
+
+/* ================================================
+   🤖 OPTIMIZACIONES ESPECÍFICAS PARA ANDROID
+   ================================================ */
+
+@media (pointer: coarse) and (max-width: 767px) {
+    /* Dispositivos táctiles Android - Material Design Guidelines */
+    
+    /* Touch targets mínimo 48dp (Android estándar) */
+    .opcion-btn {
+        min-height: 56dp; /* 56dp Material Design */
+        min-height: 56px;
+        padding: 14px 20px;
+        border-radius: 28px; /* Material Design bordes redondeados */
+        -webkit-tap-highlight-color: rgba(233, 30, 99, 0.25); /* Ripple effect color */
+    }
+    
+    /* Efecto ripple material para Android */
+    .opcion-btn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(233, 30, 99, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s;
+        pointer-events: none;
+    }
+    
+    .opcion-btn:active::after {
+        width: 300px;
+        height: 300px;
+    }
+    
+    /* Botones con espaciado Material Design (8dp grid) */
+    .opciones {
+        gap: 12px; /* 12px = 1.5 × 8dp */
+    }
+    
+    .pregunta-box {
+        padding: 20px 24px; /* 24px = 3 × 8dp */
+        margin-top: 90px;
+        border-radius: 16px; /* Material Design card radius */
+    }
+    
+    .pregunta-texto {
+        font-size: 1.15rem;
+        line-height: 1.5;
+        letter-spacing: 0.01em; /* Material Typography */
+    }
+    
+    /* Touch targets para contadores */
+    .contador-tiempo {
+        width: 52px;
+        height: 52px;
+        top: 16px;
+        left: 16px;
+    }
+    
+    .numero-pregunta {
+        width: 52px;
+        height: 52px;
+        top: 16px;
+        right: 16px;
+        font-size: 1.15rem;
+    }
+    
+    .numero-pregunta::before {
+        font-size: 3.2rem;
+    }
+    
+    /* Footer con espaciado material */
+    .quiz-footer {
+        gap: 16px; /* 2 × 8dp */
+        padding: 16px;
+        flex-direction: column;
+    }
+    
+    .btn-siguiente {
+        width: 100%;
+        min-height: 48px; /* Android minimum touch target */
+        padding: 14px 24px;
+        border-radius: 24px;
+        font-size: 1.05rem;
+        text-transform: uppercase; /* Material button style */
+        letter-spacing: 0.05em;
+    }
+    
+    .puntaje {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+    }
+    
+    /* Scroll con overscroll behavior para Android */
+    .seccion {
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Prevenir zoom accidental en Android */
+    .opcion-btn .texto {
+        font-size: 1rem;
+        -webkit-text-size-adjust: 100%;
+    }
+}
+
+/* ================================================
+   🍎 OPTIMIZACIONES ESPECÍFICAS PARA iOS
+   ================================================ */
+
+@supports (-webkit-touch-callout: none) {
+    /* Detecta dispositivos iOS usando -webkit-touch-callout */
+    
+    /* Safe areas para iPhone con notch */
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+    
+    .container {
+        max-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    }
+    
+    /* Touch targets iOS (44pt mínimo) */
+    .opcion-btn {
+        min-height: 44pt;
+        min-height: 58.67px; /* 44pt × 1.333 = 58.67px */
+        padding: 14px 22px;
+        border-radius: 32px; /* iOS bordes más redondeados */
+        -webkit-tap-highlight-color: transparent; /* iOS no usa ripple */
+        -webkit-touch-callout: none;
+    }
+    
+    /* Efecto de presión iOS (scale down) */
+    .opcion-btn:active {
+        transform: scale(0.96);
+        transition: transform 0.1s ease-out;
+    }
+    
+    /* Scroll momentum nativo iOS */
+    .seccion {
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-y: none; /* Evita bounce excesivo */
+    }
+    
+    /* Tipografía optimizada para iOS */
+    .pregunta-texto {
+        font-size: 1.2rem;
+        line-height: 1.47; /* iOS line-height estándar */
+        letter-spacing: -0.01em; /* iOS tracking */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .opcion-btn .texto {
+        font-size: 1.05rem;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Contadores con safe area consideration */
+    .contador-tiempo {
+        top: max(16px, env(safe-area-inset-top));
+        left: max(16px, env(safe-area-inset-left));
+        width: 54px;
+        height: 54px;
+    }
+    
+    .numero-pregunta {
+        top: max(16px, env(safe-area-inset-top));
+        right: max(16px, env(safe-area-inset-right));
+        width: 54px;
+        height: 54px;
+    }
+    
+    .numero-pregunta::before {
+        font-size: 3.4rem;
+    }
+    
+    /* Pregunta box con espaciado iOS */
+    .pregunta-box {
+        padding: 22px 28px;
+        margin-top: 95px;
+        border-radius: 20px; /* iOS card style */
+        box-shadow: 
+            0 10px 40px rgba(233, 30, 99, 0.35),
+            0 5px 20px rgba(255, 20, 147, 0.25);
+    }
+    
+    /* Footer optimizado para iOS */
+    .quiz-footer {
+        gap: 14px;
+        padding: 16px;
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+        flex-direction: column;
+    }
+    
+    .btn-siguiente {
+        width: 100%;
+        min-height: 44pt;
+        min-height: 50px;
+        padding: 13px 28px;
+        border-radius: 25px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    .btn-siguiente:active {
+        transform: scale(0.97);
+    }
+    
+    .puntaje {
+        width: 100%;
+        justify-content: center;
+        padding: 13px 22px;
+        border-radius: 22px;
+    }
+    
+    /* Prevenir zoom en iOS al tocar inputs/botones */
+    .opcion-btn,
+    .btn-siguiente,
+    .btn-principal {
+        touch-action: manipulation;
+    }
+    
+    /* Optimización de scrolling para iOS */
+    .contenido-quiz {
+        padding: 0 20px;
+        padding-top: max(0px, env(safe-area-inset-top));
+    }
+}
+
+/* ================================================
+   🍎 MEDIA QUERIES ADICIONALES PARA iOS
+   ================================================ */
+
+/* iPhone SE / Small iOS devices */
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 380px) {
         .opcion-btn {
-            padding: 10px 15px;
-            margin: 6px 0;
-            min-height: 45px;
+            min-height: 50px;
+            padding: 12px 18px;
+        }
+        
+        .pregunta-box {
+            padding: 18px 22px;
+            margin-top: 85px;
+        }
+        
+        .pregunta-texto {
+            font-size: 1.05rem;
+        }
+        
+        .contador-tiempo,
+        .numero-pregunta {
+            width: 48px;
+            height: 48px;
         }
     }
+}
+
+/* iPad / Tablet iOS */
+@supports (-webkit-touch-callout: none) {
+    @media (min-width: 768px) and (max-width: 1024px) {
+        .opcion-btn {
+            min-height: 60px;
+            padding: 16px 28px;
+        }
+        
+        .pregunta-box {
+            padding: 28px 36px;
+            margin-top: 150px;
+        }
+        
+        .pregunta-texto {
+            font-size: 1.4rem;
+        }
+        
+        .contador-tiempo,
+        .numero-pregunta {
+            width: 62px;
+            height: 62px;
+        }
+        
+        .numero-pregunta::before {
+            font-size: 4rem;
+        }
+    }
+}
