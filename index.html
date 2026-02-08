@@ -6,6 +6,8 @@
     <!-- Configuración responsive para móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz San Valentín</title>
+    <!-- Favicon con emoji de corazón -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>">
     <!-- Enlace a la hoja de estilos CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -34,7 +36,78 @@
             </div>
         </section>
 
+        <!-- ==========================================
+             SECCIÓN 2: PREGUNTAS DEL QUIZ
+             - Preguntas dinámicas con contador
+             - Opciones de respuesta A, B, C
+             ========================================== -->
+        <section id="pregunta" class="seccion">
+            <!-- Número de pregunta en la esquina del fondo -->
+            <div class="numero-pregunta">1</div>
+            <!-- Contador de tiempo -->
+            <div class="contador-tiempo">
+                <svg class="cronometro-svg" viewBox="0 0 100 100">
+                    <circle class="cronometro-fondo" cx="50" cy="50" r="45"></circle>
+                    <circle class="cronometro-progreso" cx="50" cy="50" r="45"></circle>
+                </svg>
+                <span class="tiempo-numero">10</span>
+            </div>
+            <div class="contenido-quiz">
+                <!-- Texto de la pregunta -->
+                <div class="pregunta-box">
+                    <h2 class="pregunta-texto">¿Dónde fue nuestra primera cita?</h2>
+                </div>
+                <!-- Opciones de respuesta -->
+                <div class="opciones">
+                    <button class="opcion-btn" data-respuesta="A">
+                        <span class="letra">A</span>
+                        <span class="texto">Un restaurante</span>
+                    </button>
+                    <button class="opcion-btn" data-respuesta="B">
+                        <span class="letra">B</span>
+                        <span class="texto">En casa</span>
+                    </button>
+                    <button class="opcion-btn" data-respuesta="C">
+                        <span class="letra">C</span>
+                        <span class="texto">Otro lugar especial</span>
+                    </button>
+                </div>
+                <!-- Área inferior: Puntaje y botón siguiente -->
+                <div class="quiz-footer">
+                    <div class="puntaje">
+                        <span class="puntaje-label">Puntaje:</span>
+                        <span class="puntaje-numero">0</span>
+                    </div>
+                    <button id="btn-siguiente" class="btn-siguiente">Siguiente</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECCIÓN 3: RESULTADOS FINALES
+             - Muestra puntaje total
+             - Mensaje personalizado
+             - Botón para reiniciar
+             ========================================== -->
+        <section id="resultados" class="seccion">
+            <div class="contenido">
+                <div class="resultados-box">
+                    <h1 class="titulo-resultado">¡Terminaste! 🎉</h1>
+                    <div class="puntaje-final">
+                        <span class="puntaje-final-numero">0</span>
+                        <span class="puntaje-final-total">/ 100</span>
+                    </div>
+                    <p class="mensaje-resultado">¡Excelente trabajo!</p>
+                    <p class="intento-numero" style="font-size: 14px; opacity: 0.8; margin-top: 15px;"></p>
+                    <button id="btn-reiniciar" class="btn-principal">Jugar de nuevo</button>
+                </div>
+            </div>
+        </section>
+
     </div>
+
+    <!-- Audio del quiz -->
+    <audio id="audio-quiz" src="assets/shallow.mp3"></audio>
 
     <!-- Enlace al archivo JavaScript -->
     <script src="script.js"></script>
