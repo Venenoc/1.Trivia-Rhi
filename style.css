@@ -903,10 +903,10 @@ h1 {
     
     /* Touch targets mínimo 48dp (Android estándar) ajustado para 9:16 */
     .opcion-btn {
-        min-height: 52dp; /* Reducido para 9:16 */
-        min-height: 52px;
-        padding: 12px 18px;
-        border-radius: 26px; /* Material Design bordes redondeados */
+        min-height: 48dp; /* Reducido para 9:16 */
+        min-height: 48px;
+        padding: 10px 16px;
+        border-radius: 24px; /* Material Design bordes redondeados */
         -webkit-tap-highlight-color: rgba(233, 30, 99, 0.25); /* Ripple effect color */
     }
     
@@ -932,49 +932,49 @@ h1 {
     
     /* Botones con espaciado Material Design (8dp grid) */
     .opciones {
-        gap: 10px; /* Reducido de 12px para 9:16 */
+        gap: 8px; /* Reducido para mejor ajuste */
     }
     
     .pregunta-box {
-        padding: 18px 22px; /* Reducido para 9:16 */
-        margin-top: 100px; /* Reducido de 90px */
-        border-radius: 16px; /* Material Design card radius */
+        padding: 15px 18px; /* Reducido para 9:16 */
+        margin-top: 85px; /* Reducido para más espacio */
+        border-radius: 14px; /* Material Design card radius */
     }
     
     .pregunta-texto {
-        font-size: 1.08rem; /* Reducido para 9:16 */
+        font-size: 1rem; /* Reducido para 9:16 */
         line-height: 1.45;
         letter-spacing: 0.01em; /* Material Typography */
     }
     
     /* Touch targets para contadores */
     .contador-tiempo {
-        width: 50px; /* Reducido para 9:16 */
-        height: 50px;
-        top: 14px;
-        left: 14px;
+        width: 46px; /* Reducido para 9:16 */
+        height: 46px;
+        top: 12px;
+        left: 12px;
     }
     
     .numero-pregunta {
-        width: 50px; /* Reducido para 9:16 */
-        height: 50px;
-        top: 14px;
-        right: 14px;
-        font-size: 1.1rem;
+        width: 46px; /* Reducido para 9:16 */
+        height: 46px;
+        top: 12px;
+        right: 12px;
+        font-size: 1rem;
     }
     
     .numero-pregunta::before {
-        font-size: 3rem; /* Reducido para 9:16 */
+        font-size: 2.7rem; /* Reducido para 9:16 */
     }
     
     .tiempo-numero {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
     }
     
     /* Footer con espaciado material */
     .quiz-footer {
-        gap: 14px; /* Reducido para 9:16 */
-        padding: 14px;
+        gap: 12px; /* Reducido para 9:16 */
+        padding: 12px;
         flex-direction: row; /* Cambiado a row para alinear horizontalmente */
         justify-content: space-between;
     }
@@ -983,9 +983,9 @@ h1 {
         width: auto; /* Cambiado de 100% a auto */
         flex: 1; /* Permite que crezca proporcionalmente */
         min-height: 48px; /* Android minimum touch target */
-        padding: 12px 22px;
+        padding: 10px 18px;
         border-radius: 24px;
-        font-size: 1rem;
+        font-size: 0.95rem;
         text-transform: uppercase; /* Material button style */
         letter-spacing: 0.05em;
     }
@@ -994,15 +994,15 @@ h1 {
         width: auto; /* Cambiado de 100% a auto */
         flex-shrink: 0; /* Evita que se comprima */
         justify-content: center;
-        padding: 11px 18px;
+        padding: 10px 16px;
     }
     
     .puntaje-label {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     
     .puntaje-numero {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     /* Scroll con overscroll behavior para Android */
@@ -1013,14 +1013,14 @@ h1 {
     
     /* Prevenir zoom accidental en Android */
     .opcion-btn .texto {
-        font-size: 0.95rem;
+        font-size: 0.88rem;
         -webkit-text-size-adjust: 100%;
     }
     
     .opcion-btn .letra {
-        width: 38px;
-        height: 38px;
-        font-size: 1.15rem;
+        width: 34px;
+        height: 34px;
+        font-size: 1.05rem;
     }
 }
 
@@ -1046,9 +1046,9 @@ h1 {
     /* Touch targets iOS (44pt mínimo) */
     .opcion-btn {
         min-height: 44pt;
-        min-height: 58.67px; /* 44pt × 1.333 = 58.67px */
-        padding: 14px 22px;
-        border-radius: 32px; /* iOS bordes más redondeados */
+        min-height: 50px; /* Reducido para 9:16 */
+        padding: 12px 18px;
+        border-radius: 28px; /* iOS bordes más redondeados */
         -webkit-tap-highlight-color: transparent; /* iOS no usa ripple */
         -webkit-touch-callout: none;
     }
@@ -1067,7 +1067,7 @@ h1 {
     
     /* Tipografía optimizada para iOS */
     .pregunta-texto {
-        font-size: 1.2rem;
+        font-size: 1.05rem;
         line-height: 1.47; /* iOS line-height estándar */
         letter-spacing: -0.01em; /* iOS tracking */
         -webkit-font-smoothing: antialiased;
@@ -1075,34 +1075,34 @@ h1 {
     }
     
     .opcion-btn .texto {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
         -webkit-font-smoothing: antialiased;
     }
     
     /* Contadores con safe area consideration */
     .contador-tiempo {
-        top: max(16px, env(safe-area-inset-top));
-        left: max(16px, env(safe-area-inset-left));
-        width: 54px;
-        height: 54px;
+        top: max(12px, env(safe-area-inset-top));
+        left: max(12px, env(safe-area-inset-left));
+        width: 48px;
+        height: 48px;
     }
     
     .numero-pregunta {
-        top: max(16px, env(safe-area-inset-top));
-        right: max(16px, env(safe-area-inset-right));
-        width: 54px;
-        height: 54px;
+        top: max(12px, env(safe-area-inset-top));
+        right: max(12px, env(safe-area-inset-right));
+        width: 48px;
+        height: 48px;
     }
     
     .numero-pregunta::before {
-        font-size: 3.4rem;
+        font-size: 3rem;
     }
     
     /* Pregunta box con espaciado iOS */
     .pregunta-box {
-        padding: 22px 28px;
-        margin-top: 95px;
-        border-radius: 20px; /* iOS card style */
+        padding: 18px 22px;
+        margin-top: 80px;
+        border-radius: 18px; /* iOS card style */
         box-shadow: 
             0 10px 40px rgba(233, 30, 99, 0.35),
             0 5px 20px rgba(255, 20, 147, 0.25);
@@ -1110,9 +1110,9 @@ h1 {
     
     /* Footer optimizado para iOS */
     .quiz-footer {
-        gap: 14px;
-        padding: 16px;
-        padding-bottom: max(16px, env(safe-area-inset-bottom));
+        gap: 12px;
+        padding: 14px;
+        padding-bottom: max(14px, env(safe-area-inset-bottom));
         flex-direction: row;
         justify-content: space-between;
     }
@@ -1121,10 +1121,10 @@ h1 {
         width: auto;
         flex: 1;
         min-height: 44pt;
-        min-height: 50px;
-        padding: 13px 28px;
-        border-radius: 25px;
-        font-size: 1.05rem;
+        min-height: 48px;
+        padding: 11px 22px;
+        border-radius: 24px;
+        font-size: 0.95rem;
         font-weight: 600;
         -webkit-font-smoothing: antialiased;
     }
@@ -1137,8 +1137,8 @@ h1 {
         width: auto;
         flex-shrink: 0;
         justify-content: center;
-        padding: 13px 22px;
-        border-radius: 22px;
+        padding: 11px 18px;
+        border-radius: 20px;
     }
     
     /* Prevenir zoom en iOS al tocar inputs/botones */
