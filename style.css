@@ -937,7 +937,7 @@ h1 {
     
     .pregunta-box {
         padding: 18px 22px; /* Reducido para 9:16 */
-        margin-top: 75px; /* Reducido de 90px */
+        margin-top: 100px; /* Reducido de 90px */
         border-radius: 16px; /* Material Design card radius */
     }
     
