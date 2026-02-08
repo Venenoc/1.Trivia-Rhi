@@ -975,11 +975,13 @@ h1 {
     .quiz-footer {
         gap: 14px; /* Reducido para 9:16 */
         padding: 14px;
-        flex-direction: column;
+        flex-direction: row; /* Cambiado a row para alinear horizontalmente */
+        justify-content: space-between;
     }
     
     .btn-siguiente {
-        width: 100%;
+        width: auto; /* Cambiado de 100% a auto */
+        flex: 1; /* Permite que crezca proporcionalmente */
         min-height: 48px; /* Android minimum touch target */
         padding: 12px 22px;
         border-radius: 24px;
@@ -989,7 +991,8 @@ h1 {
     }
     
     .puntaje {
-        width: 100%;
+        width: auto; /* Cambiado de 100% a auto */
+        flex-shrink: 0; /* Evita que se comprima */
         justify-content: center;
         padding: 11px 18px;
     }
