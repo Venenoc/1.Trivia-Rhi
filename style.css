@@ -7,21 +7,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+    -webkit-tap-highlight-color: transparent; /* Elimina resaltado azul en tap en iOS */
+    -webkit-touch-callout: none; /* Deshabilita menú contextual en iOS */
+}
+
+html {
+    -webkit-text-size-adjust: 100%; /* Previene ajuste automático de texto en iOS */
+    touch-action: manipulation; /* Mejora la respuesta táctil */
 }
 
 /* Estilos del body - Contenedor principal de la página */
 body {
     font-family: Arial, sans-serif;
     min-height: 100vh; /* Altura mínima de toda la ventana */
+    min-height: 100dvh; /* Altura dinámica para móviles */
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Fondo degradado púrpura */
+    padding: 10px; /* Padding para que no toque los bordes en móviles */
+    overflow: hidden; /* Previene scroll no deseado */
 }
 
 /* Contenedor principal - Formato 9:16 con fondo de imagen */
 .container {
-    width: min(420px, 90vw); /* Ancho máximo 420px o 90% del viewport */
+    width: min(420px, 100%); /* Ancho máximo 420px o 100% del viewport */
+    max-height: 90vh; /* Altura máxima 90% del viewport */
+    max-height: 90dvh; /* Altura dinámica para móviles */
     aspect-ratio: 9 / 16; /* Relación de aspecto vertical (formato stories) */
     background: url('assets/fondo.jpg') center/cover no-repeat; /* Imagen de fondo centrada */
     border-radius: 15px; /* Bordes redondeados */
@@ -64,6 +76,8 @@ body {
     align-items: center; /* Centra horizontalmente el contenido */
     padding: 40px; /* Espacio interno */
     text-align: center; /* Texto centrado */
+    overflow-y: auto; /* Permite scroll vertical si es necesario */
+    -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
 }
 
 /* Sección activa - Solo la sección con esta clase se muestra */
@@ -139,6 +153,7 @@ h1 {
 /* Botón principal con gradiente rosa */
 .btn-principal {
     padding: 15px 50px; /* Espacio interno generoso */
+    min-height: 50px; /* Altura mínima para touch targets */
     font-size: 1.2rem;
     font-weight: 600; /* Texto semi-bold */
     color: white; /* Texto blanco */
@@ -148,6 +163,9 @@ h1 {
     cursor: pointer; /* Cursor de mano al pasar */
     transition: transform 0.3s ease; /* Transición suave de transformación */
     margin-top: 20px; /* Espacio superior */
+    -webkit-tap-highlight-color: rgba(233, 30, 99, 0.3); /* Resaltado rosa al tocar en móviles */
+    touch-action: manipulation; /* Mejora respuesta táctil */
+    user-select: none; /* Previene selección de texto */
 }
 
 /* Estado hover del botón - Al pasar el mouse */
@@ -369,6 +387,7 @@ h1 {
     border: 3px solid #e91e63;
     border-radius: 35px; /* Esquinas más redondeadas */
     padding: 12px 18px;
+    min-height: 60px; /* Altura mínima para touch targets */
     display: flex;
     align-items: center;
     gap: 15px;
@@ -382,6 +401,9 @@ h1 {
         inset 0 -2px 0 rgba(0, 0, 0, 0.05); /* Múltiples sombras para efecto 3D */
     position: relative;
     transform-style: preserve-3d;
+    -webkit-tap-highlight-color: rgba(233, 30, 99, 0.2);
+    touch-action: manipulation;
+    user-select: none;
 }
 
 .opcion-btn:hover {
@@ -526,12 +548,16 @@ h1 {
     color: white;
     border: none;
     padding: 12px 25px;
+    min-height: 48px; /* Altura mínima para touch targets */
     border-radius: 25px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.3s ease;
     box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+    -webkit-tap-highlight-color: rgba(233, 30, 99, 0.3);
+    touch-action: manipulation;
+    user-select: none;
 }
 
 .btn-siguiente:hover {
@@ -540,6 +566,12 @@ h1 {
 
 .btn-siguiente:active {
     transform: scale(0.98);
+}
+
+.btn-siguiente:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
 }
 
 /* ================================================
@@ -603,40 +635,56 @@ h1 {
 
 /* Responsive para preguntas en móviles */
 @media (max-width: 600px) {
+    .container {
+        border-radius: 10px;
+    }
+    
     .numero-pregunta {
-        font-size: 1.2rem;
-        width: 55px;
-        height: 55px;
-        top: 20px;
-        right: 20px;
+        font-size: 1.1rem;
+        width: 50px;
+        height: 50px;
+        top: 15px;
+        right: 15px;
     }
     
     .numero-pregunta::before {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
     
     .contador-tiempo {
         width: 50px;
         height: 50px;
-        top: 20px;
-        left: 20px;
+        top: 15px;
+        left: 15px;
     }
     
     .tiempo-numero {
-        font-size: 1.1rem;
+        font-size: 1rem;
+    }
+    
+    .pregunta-box {
+        padding: 20px 25px;
+        margin-top: 30px;
     }
     
     .pregunta-texto {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+    
+    .opcion-btn {
+        padding: 15px 20px;
+        min-height: 50px;
     }
     
     .opcion-btn .texto {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     
     .quiz-footer {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
+        padding: 15px;
     }
     
     .puntaje {
@@ -646,5 +694,132 @@ h1 {
     
     .btn-siguiente {
         width: 100%;
+        padding: 12px 30px;
+    }
+    
+    h1, .dedicatoria {
+        font-size: 1.8rem;
+    }
+    
+    .descripcion {
+        font-size: 1rem;
+    }
+    
+    .btn-principal {
+        padding: 12px 40px;
+        font-size: 1.1rem;
+    }
+    
+    .puntaje-final-numero {
+        font-size: 4rem;
+    }
+    
+    .mensaje-resultado {
+        font-size: 1rem;
     }
 }
+
+/* Responsive para pantallas muy pequeñas */
+@media (max-width: 380px) {
+    body {
+        padding: 5px;
+    }
+    
+    .container {
+        border-radius: 8px;
+    }
+    
+    .titulo-box, .resultados-box {
+        padding: 25px;
+    }
+    
+    h1, .dedicatoria {
+        font-size: 1.5rem;
+    }
+    
+    .descripcion {
+        font-size: 0.9rem;
+        max-width: 250px;
+    }
+    
+    .btn-principal {
+        padding: 10px 35px;
+        font-size: 1rem;
+    }
+    
+    .numero-pregunta, .contador-tiempo {
+        width: 45px;
+        height: 45px;
+        top: 12px;
+    }
+    
+    .numero-pregunta {
+        right: 12px;
+    }
+    
+    .contador-tiempo {
+        left: 12px;
+    }
+    
+    .pregunta-box {
+        padding: 18px 20px;
+        margin-top: 25px;
+    }
+    
+    .pregunta-texto {
+        font-size: 1rem;
+    }
+    
+    .opcion-btn {
+        padding: 12px 18px;
+        min-height: 48px;
+    }
+    
+    .opcion-btn .texto {
+        font-size: 0.9rem;
+    }
+    
+    .puntaje-final-numero {
+        font-size: 3.5rem;
+    }
+    
+    .mensaje-resultado {
+        font-size: 0.95rem;
+    }
+    
+    .intento-numero {
+        font-size: 12px !important;
+    }
+}
+
+/* Soporte para landscape en móviles */
+@media (max-height: 600px) and (orientation: landscape) {
+    .container {
+        max-height: 95vh;
+        max-height: 95dvh;
+    }
+    
+    .titulo-box, .resultados-box {
+        padding: 20px;
+    }
+    
+    h1, .dedicatoria {
+        font-size: 1.5rem;
+    }
+    
+    .descripcion {
+        font-size: 0.9rem;
+        margin: -5px 0;
+    }
+    
+    .pregunta-box {
+        margin-top: 20px;
+        padding: 15px 20px;
+    }
+    
+        .opcion-btn {
+            padding: 10px 15px;
+            margin: 6px 0;
+            min-height: 45px;
+        }
+    }

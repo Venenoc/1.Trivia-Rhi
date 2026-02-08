@@ -171,24 +171,33 @@ let intervaloClic = null;
 
 // Función para hacer sonido de tic-tac
 function hacerTicTac() {
-    if (!audioContext) {
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    try {
+        if (!audioContext) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContextClass) {
+                console.log('AudioContext no disponible');
+                return;
+            }
+            audioContext = new AudioContextClass();
+        }
+        
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.value = 800;
+        oscillator.type = 'sine';
+        
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.1);
+    } catch (error) {
+        console.log('Error en sonido de reloj:', error);
     }
-    
-    const oscillator = audioContext.createOscillator();
-    const gainNode = audioContext.createGain();
-    
-    oscillator.connect(gainNode);
-    gainNode.connect(audioContext.destination);
-    
-    oscillator.frequency.value = 800;
-    oscillator.type = 'sine';
-    
-    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
-    
-    oscillator.start(audioContext.currentTime);
-    oscillator.stop(audioContext.currentTime + 0.1);
 }
 
 function iniciarSonidoReloj() {
@@ -291,9 +300,11 @@ function cargarPregunta() {
     }, 500); // Pequeña pausa antes de leer
     
     // Deshabilitar botón siguiente hasta que se responda
-    btnSiguiente.disabled = true;
-    btnSiguiente.style.opacity = '0.5';
-    btnSiguiente.style.cursor = 'not-allowed';
+    if (btnSiguiente) {
+        btnSiguiente.disabled = true;
+        btnSiguiente.style.opacity = '0.5';
+        btnSiguiente.style.cursor = 'not-allowed';
+    }
     
     // Actualizar opciones
     opcionesBotones.forEach((boton, index) => {
@@ -408,7 +419,9 @@ function verificarRespuesta(botonSeleccionado) {
     if (respuestaSeleccionada === pregunta.correcta) {
         botonSeleccionado.classList.add('correcta');
         puntaje += 10;
-        puntajeNumero.textContent = puntaje;
+        if (puntajeNumero) {
+            puntajeNumero.textContent = puntaje;
+        }
         console.log('¡Correcto! +10 puntos');
         
         // Leer confirmación de respuesta correcta
@@ -472,7 +485,9 @@ function mostrarResultados() {
     audioQuiz.currentTime = 0;
     
     // Actualizar puntaje final
-    puntajeFinalNumero.textContent = puntaje;
+    if (puntajeFinalNumero) {
+        puntajeFinalNumero.textContent = puntaje;
+    }
     
     // Mensaje personalizado según puntaje
     let mensaje = '';
@@ -483,13 +498,17 @@ function mostrarResultados() {
     } else {
         mensaje = 'No importa el puntaje, lo importante es que te amo.';
     }
-    mensajeResultado.textContent = mensaje;
+    if (mensajeResultado) {
+        mensajeResultado.textContent = mensaje;
+    }
     
     // Mostrar número de intento
-    if (numeroIntento === 1) {
-        intentoNumero.textContent = 'Primer intento';
-    } else {
-        intentoNumero.textContent = `Intento ${numeroIntento}`;
+    if (intentoNumero) {
+        if (numeroIntento === 1) {
+            intentoNumero.textContent = 'Primer intento';
+        } else {
+            intentoNumero.textContent = `Intento ${numeroIntento}`;
+        }
     }
     
     // Leer el resultado con voz
@@ -507,7 +526,9 @@ function reiniciarJuego() {
     // Reiniciar variables
     preguntaActualIndex = 0;
     puntaje = 0;
-    puntajeNumero.textContent = '0';
+    if (puntajeNumero) {
+        puntajeNumero.textContent = '0';
+    }
     
     // Seleccionar nuevas preguntas
     seleccionarPreguntasAleatorias();
@@ -551,16 +572,24 @@ if (btnEmpezar) {
 }
 
 // Botón Siguiente
-btnSiguiente.addEventListener('click', () => {
-    console.log('Siguiente pregunta...');
-    siguientePregunta();
-});
+if (btnSiguiente) {
+    btnSiguiente.addEventListener('click', () => {
+        console.log('Siguiente pregunta...');
+        siguientePregunta();
+    });
+} else {
+    console.error('ERROR: No se encontró el botón siguiente');
+}
 
 // Botón Reiniciar
-btnReiniciar.addEventListener('click', () => {
-    console.log('Reiniciando...');
-    reiniciarJuego();
-});
+if (btnReiniciar) {
+    btnReiniciar.addEventListener('click', () => {
+        console.log('Reiniciando...');
+        reiniciarJuego();
+    });
+} else {
+    console.error('ERROR: No se encontró el botón reiniciar');
+}
 
 // Opciones de respuesta
 opcionesBotones.forEach(boton => {
