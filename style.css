@@ -179,6 +179,113 @@ h1 {
 }
 
 /* ================================================
+   PANEL DE AJUSTES PARA ANDROID
+   ================================================ */
+
+.ajustes-panel {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.btn-ajustes {
+    width: auto;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(233, 30, 99, 0.6);
+    border-radius: 20px;
+    color: #e91e63;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(233, 30, 99, 0.3);
+    touch-action: manipulation;
+}
+
+.btn-ajustes:active {
+    transform: scale(0.95);
+}
+
+.controles-ajustes {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.controles-ajustes.oculto {
+    display: none;
+}
+
+.control-grupo {
+    margin-bottom: 15px;
+}
+
+.control-grupo label {
+    display: block;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.control-grupo input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #e91e63, #ff6090);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.control-grupo input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #e91e63;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.control-grupo input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #e91e63;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-reset {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(102, 126, 234, 0.3);
+    touch-action: manipulation;
+}
+
+.btn-reset:active {
+    transform: scale(0.95);
+}
+
+/* ================================================
    RESPONSIVE - ADAPTACIÓN A MÓVILES
    ================================================ */
 
